@@ -2,12 +2,12 @@
 $(document).ready(function(e) {
 	//watchlD se refier a actual
 	
-	var watchlD=null;
+	var watchID=null;
 	document.addEventListener("deviceready",Dispositivo_Listo,false);
 	
 	//Cuando esta listo el dispositivo
 	function Dispositivo_Listo(){
-		comienza();
+	comienza();
 	}
 	
 	//Empieza la observacion de la aceleracion
@@ -17,15 +17,15 @@ $(document).ready(function(e) {
 	//
 	var opciones={frequency:2000};
 	
-    watchlD=navigator.accelerometer.watchAcceleration(Correcto, Error, opciones);
+    watchlD=navigator.accelerometer.watchAcceleration(Correcto,Error,opciones);
 	navigator.geolocation.getCurrentPosition(Localiza, ErorLocalizacion);
 	}
 	//Detiene la observacion de la aceleracion
 	
 	function Detente(){
-		if(watchlD) {
-			navigator .accelerometer.clearWatch (watchlD);
-			watchlD=null;
+		if(watchID) {
+			navigator .accelerometer.clearWatch (watchID);
+			watchID=null;
 		}
 	}
 	//Correcto:Toma una captura de la aceleracion
